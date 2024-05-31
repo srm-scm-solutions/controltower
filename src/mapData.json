@@ -1,0 +1,38 @@
+[
+    {
+      "state": "California",
+      "lat": 36.7783,
+      "lng": -119.4179,
+      "inbound": 1000,
+      "outbound": 800
+    },
+    {
+      "state": "Texas",
+      "lat": 31.9686,
+      "lng": -99.9018,
+      "inbound": 1200,
+      "outbound": 1100
+    },
+    {
+      "state": "New York",
+      "lat": 40.7128,
+      "lng": -74.0060,
+      "inbound": 1500,
+      "outbound": 1300
+    },
+    {
+      "state": "New Jersey",
+      "lat": 40.0583,
+      "lng": -74.4057,
+      "inbound": 900,
+      "outbound": 700
+    },
+    {
+      "state": "Washington",
+      "lat": 47.6062,
+      "lng": -122.3321,
+      "inbound": 800,
+      "outbound": 600
+    }
+  ]
+  
