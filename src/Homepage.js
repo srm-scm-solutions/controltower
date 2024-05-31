@@ -79,6 +79,10 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     marginLeft: 'auto',
   },
+  title: {
+    color: '#0D47A1 !important', // Dark blue color
+    marginLeft: '29px !important',
+  },
   reportContainer: {
     flexGrow: 1,
     display: 'flex',
@@ -108,10 +112,7 @@ const useStyles = makeStyles((theme) => ({
   exportButton: {
     marginLeft: theme.spacing(1), // Add margin to the left of the export button
   },
-  title: {
-    color: '#0D47A1 !important', // Dark blue color
-    marginLeft: theme.spacing(2),
-  },
+
   aboutIcon: {
     marginBottom: theme.spacing(2),
   },

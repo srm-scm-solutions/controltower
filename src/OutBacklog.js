@@ -12,9 +12,9 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
   },
   formControl: {
-    marginBottom: theme.spacing(3),
+    marginBottom: '20px !important' ,
     maxWidth: '300px',
-    marginTop: theme.spacing(8),
+    marginTop: '70px !important',
   },
   tooltip: {
     marginRight: theme.spacing(1),
@@ -23,13 +23,13 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   title: {
-    marginLeft: theme.spacing(-16),
+    marginLeft: '-120px !important',
   },
   tableHeaderTitle: {
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: '1.2rem',
-    color: '#0D47A1',
+    textAlign: 'center !important',
+    fontWeight: 'bold !important',
+    fontSize: '1.2rem !important',
+    color: '#0D47A1 !important',
     padding: theme.spacing(2),
   },
 }));

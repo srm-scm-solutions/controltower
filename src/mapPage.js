@@ -19,13 +19,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mapContainer: {
-    height: '450px',
+    height: '430px ',
     width: '300px',
-    margin: theme.spacing(0, 0),
+    margin: '20px !important',
     [theme.breakpoints.up('md')]: {
       width: '900px',
       marginLeft: theme.spacing(6),
-      marginTop: theme.spacing(6)
+      marginTop: '-80px !important'
     },
   },
   searchContainer: {
@@ -35,7 +35,8 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(11, 0),
     [theme.breakpoints.up('md')]: {
       alignItems: 'flex-end',
-      marginLeft: 'auto',
+      marginLeft: '-120px !important',
+      
     },
   },
   searchInput: {
@@ -46,9 +47,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   selectedStateText: {
-    marginRight: theme.spacing(68),
-    fontSize: '1.50rem', // Increase font size
-    color: 'darkblue', // Set font color to dark blue
+    marginRight: '570px !important',
+    fontSize: '1.50rem !important', // Increase font size
+    color: 'darkblue !important', // Set font color to dark blue
   },
   tableContainer: {
     width: '100%',
@@ -62,9 +63,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(-5, 0),
   },
   mainTitle: {
-    margin: theme.spacing(-5, -48),
-    fontSize: '1.5rem',
-    textAlign: 'left',
+    marginLeft :'-380px !important',
+    marginTop :'-30px !important',
+    fontSize: '1.5rem !important',
+    textAlign: 'left !important',
   },
 }));
 
