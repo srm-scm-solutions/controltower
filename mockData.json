@@ -1,0 +1,183 @@
+[
+    {
+      "state": "Texas",
+      "data": [
+        {
+          "Time": "05:00 PM",
+          "TotalForCutOff": 58,
+          "Inducted": 55,
+          "Picking": 0,
+          "Picked": 0,
+          "TotalInProcess": 55,
+          "ShippedOnTime": 3,
+          "MissedCutOff": 0
+        },
+        {
+          "Time": "05:30 PM",
+          "TotalForCutOff": 4288,
+          "Inducted": 2468,
+          "Picking": 12,
+          "Picked": 955,
+          "TotalInProcess": 3435,
+          "ShippedOnTime": 853,
+          "MissedCutOff": 0
+        },
+        {
+          "Time": "06:00 PM",
+          "TotalForCutOff": 1088,
+          "Inducted": 573,
+          "Picking": 30,
+          "Picked": 170,
+          "TotalInProcess": 773,
+          "ShippedOnTime": 315,
+          "MissedCutOff": 0
+        },
+        {
+          "Time": "07:00 PM",
+          "TotalForCutOff": 399,
+          "Inducted": 360,
+          "Picking": 0,
+          "Picked": 1,
+          "TotalInProcess": 361,
+          "ShippedOnTime": 38,
+          "MissedCutOff": 0
+        }
+      ]
+    },
+    {
+      "state": "California",
+      "data": [
+        {
+          "Time": "05:00 PM",
+          "TotalForCutOff": 70,
+          "Inducted": 68,
+          "Picking": 1,
+          "Picked": 0,
+          "TotalInProcess": 68,
+          "ShippedOnTime": 67,
+          "MissedCutOff": 0
+        },
+        {
+          "Time": "05:30 PM",
+          "TotalForCutOff": 5300,
+          "Inducted": 4800,
+          "Picking": 20,
+          "Picked": 1100,
+          "TotalInProcess": 4900,
+          "ShippedOnTime": 4800,
+          "MissedCutOff": 0
+        },
+        {
+          "Time": "06:00 PM",
+          "TotalForCutOff": 1200,
+          "Inducted": 900,
+          "Picking": 10,
+          "Picked": 200,
+          "TotalInProcess": 1100,
+          "ShippedOnTime": 1000,
+          "MissedCutOff": 0
+        },
+        {
+          "Time": "07:00 PM",
+          "TotalForCutOff": 400,
+          "Inducted": 380,
+          "Picking": 1,
+          "Picked": 1,
+          "TotalInProcess": 381,
+          "ShippedOnTime": 380,
+          "MissedCutOff": 0
+        }
+      ]
+    },
+    {
+      "state": "New York",
+      "data": [
+        {
+          "Time": "05:00 PM",
+          "TotalForCutOff": 42,
+          "Inducted": 41,
+          "Picking": 0,
+          "Picked": 0,
+          "TotalInProcess": 41,
+          "ShippedOnTime": 40,
+          "MissedCutOff": 0
+        },
+        {
+          "Time": "05:30 PM",
+          "TotalForCutOff": 3500,
+          "Inducted": 3000,
+          "Picking": 50,
+          "Picked": 500,
+          "TotalInProcess": 3500,
+          "ShippedOnTime": 3400,
+          "MissedCutOff": 0
+        },
+        {
+          "Time": "06:00 PM",
+          "TotalForCutOff": 800,
+          "Inducted": 700,
+          "Picking": 20,
+          "Picked": 80,
+          "TotalInProcess": 780,
+          "ShippedOnTime": 700,
+          "MissedCutOff": 0
+        },
+        {
+          "Time": "07:00 PM",
+          "TotalForCutOff": 300,
+          "Inducted": 280,
+          "Picking": 0,
+          "Picked": 2,
+          "TotalInProcess": 282,
+          "ShippedOnTime": 280,
+          "MissedCutOff": 0
+        }
+      ]
+    },
+    {
+      "state": "Florida",
+      "data": [
+        {
+          "Time": "05:00 PM",
+          "TotalForCutOff": 30,
+          "Inducted": 30,
+          "Picking": 0,
+          "Picked": 0,
+          "TotalInProcess": 30,
+          "ShippedOnTime": 29,
+          "MissedCutOff": 0
+        },
+        {
+          "Time": "05:30 PM",
+          "TotalForCutOff": 2000,
+          "Inducted": 1800,
+          "Picking": 10,
+          "Picked": 190,
+          "TotalInProcess": 1990,
+          "ShippedOnTime": 1900,
+          "MissedCutOff": 0
+        },
+        {
+          "Time": "06:00 PM",
+          "TotalForCutOff": 500,
+          "Inducted": 450,
+          "Picking": 5,
+          "Picked": 45,
+          "TotalInProcess": 495,
+          "ShippedOnTime": 450,
+          "MissedCutOff": 0
+        },
+        {
+          "Time": "07:00 PM",
+          "TotalForCutOff": 200,
+          "Inducted": 190,
+          "Picking": 0,
+          "Picked": 0,
+          "TotalInProcess": 190,
+          "ShippedOnTime": 190,
+          "MissedCutOff": 0
+        }
+      ]
+    }
+  ]
+  
