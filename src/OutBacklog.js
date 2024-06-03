@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Container, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, FormControl, Select, MenuItem, Tooltip, Grid, Checkbox, ListItemText } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
+
 const useStyles = makeStyles((theme) => ({
   tableContainer: {
     marginTop: theme.spacing(10),
@@ -43,7 +44,7 @@ const OutboundBacklog = () => {
   const [availableTimes, setAvailableTimes] = useState([]);
 
   useEffect(() => {
-    axios.get('/mockData.json') // Replace with your actual data endpoint
+    axios.get(`${process.env.PUBLIC_URL}/mockData.json`) // Replace with your actual data endpoint
       .then(response => {
         setData(response.data);
         computeAggregatedData(response.data);

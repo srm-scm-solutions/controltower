@@ -132,7 +132,7 @@ const HomePage = () => {
     type: 'report',
     id: '459da35c-53d4-495e-b516-1712f7b3fc0c',
     embedUrl: 'https://app.powerbi.com/reportEmbed?reportId=459da35c-53d4-495e-b516-1712f7b3fc0c&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLUlORElBLUNFTlRSQUwtQS1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19',
-    accessToken: '', // Fetch this securely
+    accessToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiJodHRwczovL2FuYWx5c2lzLndpbmRvd3MubmV0L3Bvd2VyYmkvYXBpIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvOTdmN2ZjYmQtZTY0Mi00YmU4LWI4NGYtZmMyY2Q3ZjhkNmZmLyIsImlhdCI6MTcxNzQxNDQ4NCwibmJmIjoxNzE3NDE0NDg0LCJleHAiOjE3MTc0MTg3NDUsImFjY3QiOjAsImFjciI6IjEiLCJhaW8iOiJBVlFBcS84V0FBQUFJbG5nMHRnck9rekVsc0Z5R09pNk43c1paT284MVV3VFgvbFFacURDR2JTQVFkbHVtYnA0WlZvSWN5K2lva040YzZtZm02L29uY2p5aE1PblRlS2xsN1BpbWVLRDErSS9ZdWFhMVBOSFdEaz0iLCJhbXIiOlsicHdkIiwicnNhIiwibWZhIl0sImFwcGlkIjoiODcxYzAxMGYtNWU2MS00ZmIxLTgzYWMtOTg2MTBhN2U5MTEwIiwiYXBwaWRhY3IiOiIwIiwiZGV2aWNlaWQiOiJlZTg2MDhjNC04Y2RkLTQxOTYtYTA1OS01MTgwZmJiZDlmMWEiLCJmYW1pbHlfbmFtZSI6IlByZW1uYXRoIiwiZ2l2ZW5fbmFtZSI6IlByYWRlZXAiLCJpcGFkZHIiOiIyNDAxOjQ5MDA6MWYyYjpmZTc0OjQxM2E6N2Q3ZTpmODliOjE4NWMiLCJuYW1lIjoiUHJhZGVlcCBQcmVtbmF0aCIsIm9pZCI6IjgzN2ZiZWEwLWJlOGQtNGNmYS1iMDg0LTk3NDEwZWRlYTIwNCIsIm9ucHJlbV9zaWQiOiJTLTEtNS0yMS0xMzQxMzQ0MDcwLTEyMTIwNzQzNzAtMjMwMDEzMjgzNi0zMjcxNiIsInB1aWQiOiIxMDAzMjAwMkYxOTVEM0VBIiwicmgiOiIwLkFYSUF2ZnozbDBMbTZFdTRUX3dzMV9qV193a0FBQUFBQUFBQXdBQUFBQUFBQUFEREFQcy4iLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzaWduaW5fc3RhdGUiOlsiZHZjX21uZ2QiLCJkdmNfY21wIiwiZHZjX2RtamQiLCJrbXNpIl0sInN1YiI6IlVyd1laQlNzY09CSGc5Umdfa0t3YkhpbHBTbFVpZm1ZeVNxRHNyUGRvSEUiLCJ0aWQiOiI5N2Y3ZmNiZC1lNjQyLTRiZTgtYjg0Zi1mYzJjZDdmOGQ2ZmYiLCJ1bmlxdWVfbmFtZSI6InByYWRlZXAucHJlbW5hdGhAc3JtdGVjaC5jb20iLCJ1cG4iOiJwcmFkZWVwLnByZW1uYXRoQHNybXRlY2guY29tIiwidXRpIjoiVXI0SFBWbFRPa1djSlV0XzlmVDlBQSIsInZlciI6IjEuMCIsIndpZHMiOlsiYjc5ZmJmNGQtM2VmOS00Njg5LTgxNDMtNzZiMTk0ZTg1NTA5Il19.A6iwFkZjNvISkuSs6LAl2t-nIlZ5eG9e7_WvGsFE7WHMrexLG_HH3b1us7ceDloUKHRkIiOBppMgPD9ncOoPd6NHHD3e7AvNQRx1INR3lF7yu278WvamJhZdE4fi0uWILoIKWExG8W5bTUH8Kc2ZXX10djeZ2IzbP-Zn2n-aCFt5HD-AhlAkfzO6S9GGl-V_2wcty7sY0SDjXAVAV9W5Dg09L8kBiINDl2n3FPeJt-UYr4IaAqLTy9QGvy49vUxXbO2J13fdtLmhp9etUIVSBxzUdhRuKOj7pWhhkxDiaoWmsEHMNGMziKtrUyKs3MWx27qFnsLf90kuyg1K4crEew', // Fetch this securely
     tokenType: models.TokenType.Aad,
     settings: {
       panes: {
@@ -152,13 +152,25 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('/data.xlsx');
-      const arrayBuffer = await response.arrayBuffer();
-      const data = new Uint8Array(arrayBuffer);
-      const workbook = XLSX.read(data, { type: 'array' });
-      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-      const sheetData = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
-      setTableData(sheetData);
+      try {
+        const response = await fetch(`${process.env.PUBLIC_URL}/data.xlsx`);
+        console.log('Fetch Response:', response);
+        const arrayBuffer = await response.arrayBuffer();
+        console.log('array:', arrayBuffer);
+        const data = new Uint8Array(arrayBuffer);
+        console.log('data:', data);
+        const workbook = XLSX.read(data, { type: 'array' });
+        console.log('Workbook:', workbook); // Debugging line
+
+        const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+        const sheetData = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+
+        console.log('Sheet Data:', sheetData); // Debugging line
+
+        setTableData(sheetData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     };
 
     if (currentPage === 'cycleCount') {

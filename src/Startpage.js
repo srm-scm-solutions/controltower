@@ -4,6 +4,7 @@ import { makeStyles } from '@mui/styles';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import MapIcon from '@mui/icons-material/Map';
+import backgroundImage from './CT.jpeg';
 
 // Define custom styles
 const useStyles = makeStyles((theme) => ({
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'left',
     borderRadius: theme.shape.borderRadius,
     marginBottom: theme.spacing(4),
-    backgroundImage: 'url(/images/CT.jpeg)', // Reference to the local image in the public directory
+    backgroundImage: `url(${backgroundImage})`, // Reference to the local image in the public directory
     backgroundSize: 'contain',
     backgroundPosition: 'right',
     backgroundRepeat: 'no-repeat',
