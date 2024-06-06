@@ -129,55 +129,55 @@ const HomePage = () => {
   const [tableData, setTableData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [anchorEl, setAnchorEl] = useState(null); // State for the Popover
-  const [accessToken, setAccessToken] = useState('');
-  const [tokenExpiration, setTokenExpiration] = useState(null);
+  // const [accessToken, setAccessToken] = useState('');
+  // const [tokenExpiration, setTokenExpiration] = useState(null);
 
-  useEffect(() => {
-    const fetchAccessToken = async () => {
-      try {
-        const response = await fetch('http://localhost:3001/api/token');
-        const data = await response.json();
-        setAccessToken(data.token);
-        const decodedToken = parseJwt(data.token);
-        setTokenExpiration(decodedToken.exp);
-      } catch (error) {
-        console.error('Error fetching access token:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchAccessToken = async () => {
+  //     try {
+  //       const response = await fetch('http://localhost:3001/api/token');
+  //       const data = await response.json();
+  //       setAccessToken(data.token);
+  //       const decodedToken = parseJwt(data.token);
+  //       setTokenExpiration(decodedToken.exp);
+  //     } catch (error) {
+  //       console.error('Error fetching access token:', error);
+  //     }
+  //   };
 
-    const parseJwt = (token) => {
-      try {
-        return JSON.parse(atob(token.split('.')[1]));
-      } catch (e) {
-        console.error('Failed to parse JWT:', e);
-        return null;
-      }
-    };
+  //   const parseJwt = (token) => {
+  //     try {
+  //       return JSON.parse(atob(token.split('.')[1]));
+  //     } catch (e) {
+  //       console.error('Failed to parse JWT:', e);
+  //       return null;
+  //     }
+  //   };
 
-    fetchAccessToken();
+  //   fetchAccessToken();
 
-    const checkTokenExpiration = setInterval(() => {
-      if (tokenExpiration && Date.now() >= tokenExpiration * 1000) {
-        fetchAccessToken();
-      }
-    }, 60000); // Check every minute
+  //   const checkTokenExpiration = setInterval(() => {
+  //     if (tokenExpiration && Date.now() >= tokenExpiration * 1000) {
+  //       fetchAccessToken();
+  //     }
+  //   }, 60000); // Check every minute
 
-    return () => clearInterval(checkTokenExpiration);
-  }, [tokenExpiration]);
+  //   return () => clearInterval(checkTokenExpiration);
+  // }, [tokenExpiration]);
 
-  const embedConfig = {
-    type: 'report',
-    id: '459da35c-53d4-495e-b516-1712f7b3fc0c',
-    embedUrl: 'https://app.powerbi.com/reportEmbed?reportId=459da35c-53d4-495e-b516-1712f7b3fc0c&autoAuth=true&ctid=97f7fcbd-e642-4be8-b84f-fc2cd7f8d6ff',
-    accessToken: accessToken,
-    tokenType: models.TokenType.Aad, // Correct the token type
-    settings: {
-      panes: {
-        filters: { visible: false },
-        pageNavigation: { visible: true },
-      },
-    },
-  };
+  // const embedConfig = {
+  //   type: 'report',
+  //   id: '459da35c-53d4-495e-b516-1712f7b3fc0c',
+  //   embedUrl: 'https://app.powerbi.com/reportEmbed?reportId=459da35c-53d4-495e-b516-1712f7b3fc0c&autoAuth=true&ctid=97f7fcbd-e642-4be8-b84f-fc2cd7f8d6ff',
+  //   accessToken: accessToken,
+  //   tokenType: models.TokenType.Aad, // Correct the token type
+  //   settings: {
+  //     panes: {
+  //       filters: { visible: false },
+  //       pageNavigation: { visible: true },
+  //     },
+  //   },
+  // };
 
   const menuItems = [
     { text: 'Home', icon: <HomeIcon />, page: 'home' },
