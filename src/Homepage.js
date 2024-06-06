@@ -25,6 +25,7 @@ import {
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import PowerBIReport from './PowerBIreport';
+import PublicReport from './PublicReport'; // Import the PublicReport component
 import { models } from 'powerbi-client';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import HomeIcon from '@mui/icons-material/Home';
@@ -38,8 +39,10 @@ import ApplicationFeatures from './Startpage';
 import OutboundBacklog from './OutBacklog';
 import * as XLSX from 'xlsx';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
+  // (your existing styles here)
   root: {
     display: 'flex',
     height: '100vh',
@@ -112,7 +115,6 @@ const useStyles = makeStyles((theme) => ({
   exportButton: {
     marginLeft: theme.spacing(1), // Add margin to the left of the export button
   },
-
   aboutIcon: {
     marginBottom: theme.spacing(2),
   },
@@ -127,13 +129,48 @@ const HomePage = () => {
   const [tableData, setTableData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [anchorEl, setAnchorEl] = useState(null); // State for the Popover
+  const [accessToken, setAccessToken] = useState('');
+  const [tokenExpiration, setTokenExpiration] = useState(null);
+
+  useEffect(() => {
+    const fetchAccessToken = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/api/token');
+        const data = await response.json();
+        setAccessToken(data.token);
+        const decodedToken = parseJwt(data.token);
+        setTokenExpiration(decodedToken.exp);
+      } catch (error) {
+        console.error('Error fetching access token:', error);
+      }
+    };
+
+    const parseJwt = (token) => {
+      try {
+        return JSON.parse(atob(token.split('.')[1]));
+      } catch (e) {
+        console.error('Failed to parse JWT:', e);
+        return null;
+      }
+    };
+
+    fetchAccessToken();
+
+    const checkTokenExpiration = setInterval(() => {
+      if (tokenExpiration && Date.now() >= tokenExpiration * 1000) {
+        fetchAccessToken();
+      }
+    }, 60000); // Check every minute
+
+    return () => clearInterval(checkTokenExpiration);
+  }, [tokenExpiration]);
 
   const embedConfig = {
     type: 'report',
     id: '459da35c-53d4-495e-b516-1712f7b3fc0c',
-    embedUrl: 'https://app.powerbi.com/reportEmbed?reportId=459da35c-53d4-495e-b516-1712f7b3fc0c&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLUlORElBLUNFTlRSQUwtQS1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19',
-    accessToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiJodHRwczovL2FuYWx5c2lzLndpbmRvd3MubmV0L3Bvd2VyYmkvYXBpIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvOTdmN2ZjYmQtZTY0Mi00YmU4LWI4NGYtZmMyY2Q3ZjhkNmZmLyIsImlhdCI6MTcxNzQyOTc5NywibmJmIjoxNzE3NDI5Nzk3LCJleHAiOjE3MTc0MzM5NTUsImFjY3QiOjAsImFjciI6IjEiLCJhaW8iOiJBVlFBcS84V0FBQUExWEVKZDM3alNtN0VHUTRLSm0xR1Y5MlF0bER4OXBHTHp2TCtqaTVjejVNYmMzc0Fvek5NVzhZckNURVgraVlKN3EyaW5oenBiakE1VGNRNGUyZkMrOS9HNlNKOGtubUYvaVNzWDc2aS80cz0iLCJhbXIiOlsicHdkIiwicnNhIiwibWZhIl0sImFwcGlkIjoiODcxYzAxMGYtNWU2MS00ZmIxLTgzYWMtOTg2MTBhN2U5MTEwIiwiYXBwaWRhY3IiOiIwIiwiZGV2aWNlaWQiOiJlZTg2MDhjNC04Y2RkLTQxOTYtYTA1OS01MTgwZmJiZDlmMWEiLCJmYW1pbHlfbmFtZSI6IlByZW1uYXRoIiwiZ2l2ZW5fbmFtZSI6IlByYWRlZXAiLCJpcGFkZHIiOiIyNDAxOjQ5MDA6MWYyYjpmZTc0OjQxM2E6N2Q3ZTpmODliOjE4NWMiLCJuYW1lIjoiUHJhZGVlcCBQcmVtbmF0aCIsIm9pZCI6IjgzN2ZiZWEwLWJlOGQtNGNmYS1iMDg0LTk3NDEwZWRlYTIwNCIsIm9ucHJlbV9zaWQiOiJTLTEtNS0yMS0xMzQxMzQ0MDcwLTEyMTIwNzQzNzAtMjMwMDEzMjgzNi0zMjcxNiIsInB1aWQiOiIxMDAzMjAwMkYxOTVEM0VBIiwicmgiOiIwLkFYSUF2ZnozbDBMbTZFdTRUX3dzMV9qV193a0FBQUFBQUFBQXdBQUFBQUFBQUFEREFQcy4iLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzaWduaW5fc3RhdGUiOlsiZHZjX21uZ2QiLCJkdmNfY21wIiwiZHZjX2RtamQiLCJrbXNpIl0sInN1YiI6IlVyd1laQlNzY09CSGc5Umdfa0t3YkhpbHBTbFVpZm1ZeVNxRHNyUGRvSEUiLCJ0aWQiOiI5N2Y3ZmNiZC1lNjQyLTRiZTgtYjg0Zi1mYzJjZDdmOGQ2ZmYiLCJ1bmlxdWVfbmFtZSI6InByYWRlZXAucHJlbW5hdGhAc3JtdGVjaC5jb20iLCJ1cG4iOiJwcmFkZWVwLnByZW1uYXRoQHNybXRlY2guY29tIiwidXRpIjoidC1UNkVwdXM0azZZNUQ5TUNONTVBUSIsInZlciI6IjEuMCIsIndpZHMiOlsiYjc5ZmJmNGQtM2VmOS00Njg5LTgxNDMtNzZiMTk0ZTg1NTA5Il19.XdUX26wkDVa1yDmbX_Do4RiufJTAI_anGYUK-pkacCgtA-9p9ZC2tUHN8ysnK2TCjKCMulLWe_AGR9-HsmINmJJTKtVWKDJmIWIDhOwYm6aQXBFqYSIRHTKzMBANFwO5ep07s-U-BlM3wjJA_ee_QjBp5aKg8KQ2y_Kyx3XujjvR7TCbSJ6imlCTgBTGy18SvYlBRjAHBQRXSnJe5Jv_Hqft0-csLB27BnlWIB5d_Kj3QojZsNla8whA1hW5SuThSoC7krH0bQgPt-5f8fveM9JKBQWPExh6UOv0iseewSZUP_M_ZqSHtvgPsg7EwvOdJnqlgFUoWhRjaEwpVThMMw', // Fetch this securely
-    tokenType: models.TokenType.Aad,
+    embedUrl: 'https://app.powerbi.com/reportEmbed?reportId=459da35c-53d4-495e-b516-1712f7b3fc0c&autoAuth=true&ctid=97f7fcbd-e642-4be8-b84f-fc2cd7f8d6ff',
+    accessToken: accessToken,
+    tokenType: models.TokenType.Aad, // Correct the token type
     settings: {
       panes: {
         filters: { visible: false },
@@ -147,26 +184,19 @@ const HomePage = () => {
     { text: 'Cycle Count Summary', icon: <TableChartIcon />, page: 'cycleCount' },
     { text: 'Map', icon: <MapIcon />, page: 'map' },
     { text: 'Outbound Backlog', icon: <OutboundBacklogIcon />, page: 'outboundBacklog' },
-    { text: 'Analytics', icon: <AnalyticsIcon />, page: 'analytics' },
+    //{ text: 'Analytics', icon: <AnalyticsIcon />, page: 'analytics' },
+    { text: 'Analytics', icon: <AnalyticsIcon />, page: 'publicReport' }, // New menu item
   ];
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${process.env.PUBLIC_URL}/data.xlsx`);
-        console.log('Fetch Response:', response);
         const arrayBuffer = await response.arrayBuffer();
-        console.log('array:', arrayBuffer);
         const data = new Uint8Array(arrayBuffer);
-        console.log('data:', data);
         const workbook = XLSX.read(data, { type: 'array' });
-        console.log('Workbook:', workbook); // Debugging line
-
         const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
         const sheetData = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
-
-        console.log('Sheet Data:', sheetData); // Debugging line
-
         setTableData(sheetData);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -237,10 +267,7 @@ const HomePage = () => {
           <List>
             {menuItems.map((item, index) => (
               <Tooltip title={item.text} key={index} placement="right">
-                <ListItem
-                  button
-                  onClick={() => setCurrentPage(item.page)}
-                >
+                <ListItem button onClick={() => setCurrentPage(item.page)}>
                   <ListItemIcon>{item.icon}</ListItemIcon>
                 </ListItem>
               </Tooltip>
@@ -290,11 +317,10 @@ const HomePage = () => {
               <Table>
                 <TableHead>
                   <TableRow>
-                    {tableData[0] && tableData[0].map((header, index) => (
-                      <TableCell key={index} className={classes.tableHeader}>
-                        {header}
-                      </TableCell>
-                    ))}
+                    {tableData[0] &&
+                      tableData[0].map((header, index) => (
+                        <TableCell key={index}>{header}</TableCell>
+                      ))}
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -310,9 +336,10 @@ const HomePage = () => {
             </TableContainer>
           </Box>
         )}
+        {currentPage === 'home' && <ApplicationFeatures />}
         {currentPage === 'map' && <MapPage />}
         {currentPage === 'outboundBacklog' && <OutboundBacklog />}
-        {currentPage === 'home' && <ApplicationFeatures />}
+        {currentPage === 'publicReport' && <PublicReport />} {/* Include PublicReport component */}
       </main>
       <Popover
         id={id}
@@ -320,18 +347,21 @@ const HomePage = () => {
         anchorEl={anchorEl}
         onClose={handleAboutClose}
         anchorOrigin={{
-          vertical: 'center',
-          horizontal: 'right',
+          vertical: 'bottom',
+          horizontal: 'center',
         }}
         transformOrigin={{
-          vertical: 'center',
-          horizontal: 'left',
+          vertical: 'top',
+          horizontal: 'center',
         }}
       >
         <Box p={2}>
-          <Typography variant="h6">About This App</Typography>
-          <Typography variant="body1">Version: 1.0.0</Typography>
-          <Typography variant="body1">Environment: Test</Typography>
+          <Typography variant="h6" gutterBottom>
+            About Control Tower
+          </Typography>
+          <Typography variant="body1">
+            Control Tower is a comprehensive tool for managing various aspects of your operations. Use the menu to navigate through different sections like Cycle Count Summary, Map, Outbound Backlog, and Analytics.
+          </Typography>
         </Box>
       </Popover>
     </div>
@@ -339,3 +369,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
