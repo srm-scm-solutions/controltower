@@ -24,7 +24,7 @@ import {
   Popover,
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import PowerBIReport from './PowerBIreport';
+//import PowerBIReport from './PowerBIreport';
 import PublicReport from './PublicReport'; // Import the PublicReport component
 import { models } from 'powerbi-client';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -39,7 +39,7 @@ import ApplicationFeatures from './Startpage';
 import OutboundBacklog from './OutBacklog';
 import * as XLSX from 'xlsx';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
-import axios from 'axios';
+//import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   // (your existing styles here)
@@ -289,11 +289,11 @@ const HomePage = () => {
       </Drawer>
       <main className={classes.content}>
         <Toolbar />
-        {currentPage === 'analytics' && (
+        {/* {currentPage === 'analytics' && (
           <Box className={classes.reportContainer}>
             <PowerBIReport embedConfig={embedConfig} />
           </Box>
-        )}
+        )} */}
         {currentPage === 'cycleCount' && (
           <Box>
             <Typography variant="h4" gutterBottom>
