@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/controltower/static/css/main.230fa577.css",
-    "main.js": "/controltower/static/js/main.765edf50.js",
+    "main.js": "/controltower/static/js/main.5bfd264a.js",
     "static/js/453.42461a61.chunk.js": "/controltower/static/js/453.42461a61.chunk.js",
     "static/media/CT.jpeg": "/controltower/static/media/CT.e5e708012761336e3d6b.jpeg",
     "static/media/marker.png": "/controltower/static/media/marker.5419a75bcceb85238606.png",
     "index.html": "/controltower/index.html",
     "main.230fa577.css.map": "/controltower/static/css/main.230fa577.css.map",
-    "main.765edf50.js.map": "/controltower/static/js/main.765edf50.js.map",
+    "main.5bfd264a.js.map": "/controltower/static/js/main.5bfd264a.js.map",
     "453.42461a61.chunk.js.map": "/controltower/static/js/453.42461a61.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.230fa577.css",
-    "static/js/main.765edf50.js"
+    "static/js/main.5bfd264a.js"
   ]
 }
