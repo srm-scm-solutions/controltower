@@ -63,10 +63,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(-5, 0),
   },
   mainTitle: {
-    marginLeft :'-380px !important',
+    marginLeft :'-350px !important',
     marginTop :'-30px !important',
     fontSize: '1.5rem !important',
-    textAlign: 'left !important',
+    textAlign: 'center !important',
   },
 }));
 

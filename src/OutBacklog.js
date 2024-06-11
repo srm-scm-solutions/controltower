@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   title: {
-    marginLeft: '-120px !important',
+    marginLeft: '-100px !important',
   },
   tableHeaderTitle: {
     textAlign: 'center !important',
